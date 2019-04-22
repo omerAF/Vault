@@ -1,0 +1,27 @@
+{
+"name": "Vault",
+"version": "1.0",
+"description": "A modern, secure and simplified password manager.",
+"icons": { "16": "icons/icon16.png",
+  "32": "icons/icon32.png",
+  "48": "icons/icon48.png",
+  "128": "icons/icon128.png",
+  "256": "icons/icon256.png",
+  "1080": "icons/icon1080.png" },
+"permissions":["tabs","webNavigation","storage"],
+"content_scripts": [{
+"matches": ["<all_urls>"],
+"run_at":"document_start",
+"all_frames":true,
+  "js": ["runEverywhere.js"]
+}],
+"browser_action": {
+  "default_popup": "popup/main/popup.html"
+},
+"web_accessible_resources": [
+  "font-awesome.min.css",
+  "Damion-Regular.ttf"
+],
+"content_security_policy": "default-src 'self'; connect-src 'self' https://api.pwnedpasswords.com; style-src 'self' 'unsafe-inline';",
+"manifest_version": 2
+}
